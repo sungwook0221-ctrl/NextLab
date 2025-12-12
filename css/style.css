@@ -5,14 +5,14 @@
 
 body {font-family: 'Pretendard';}
 
-.container {width: 1620px;margin: 0 auto; border: 1px solid #000;}
+.container {max-width: 1620px;margin: 0 auto; }
 
 header {height: 178px;}
 
 
 
 header .topset {display: flex; justify-content: space-between;}
-.topset .langbox {display: flex; align-items: center; border: 1px solid #000; gap: 13px; color: #808008;}
+.topset .langbox {display: flex; align-items: center; gap: 13px; color: #808008; margin-left: 6.5vw;}
 .topset .langbox a {padding: 10px 0; font-size: 14px; color: #808080;}
 .topset .langbox a.on {color: #05456e; font-weight: 600;}
 
@@ -21,8 +21,15 @@ header h1 {margin-top: 20px;}
 header h1 a {}
 header h1 a img {}
 
-header .baro {display: flex; gap: 25px; align-items: center;}
+header .baro {display: flex; gap: 25px; align-items: center; margin-right: 6.5vw;}
 header .baro a {padding: 10px 0; font-size: 14px; color: #808080;}
+
+header nav {}
+header nav .gnb {display: flex; justify-content: space-between;}
+header nav .gnb li {font-size: 20px;  flex-grow: 1; transition: .2s;}
+header nav .gnb li a {color: #05456e;  padding: 25px 40px; display: flex; justify-content: center;}
+
+header nav .gnb li:hover {font-size: 24px; font-weight: bold;}
 
 
 
