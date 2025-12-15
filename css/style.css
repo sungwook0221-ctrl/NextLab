@@ -33,10 +33,11 @@ header nav .gnb > li > a {color: #05456e;  padding: 25px 40px; display: flex; ju
 header nav .gnb > li:hover {font-size: 24px; font-weight: bold;}
 header nav .gnb > li:hover .lnb {opacity: 1; visibility: visible;} /* 숨겼던거 나타나라 */
 
-header nav .gnb .lnb {position: absolute; background: #fff; padding: 49px 36px; display: flex; left: 0; top: 90%; box-shadow: 4px 6px 60px rgba(0, 0, 0, 0.1); width: 130%; opacity: 0; transition: 0.3s; visibility: hidden;} /* lnb는 무조건 absolute */ /* box-shadow 박스에 그림자주기 */ /* visibility: hidden; 숨기기 */
-header nav .gnb .lnb figure {padding-right: 38px; display: flex; align-items: center;}
+header nav .gnb .lnb {position: absolute; background: #fff; padding: 49px 36px; display: flex; left: 0; top: 90%; box-shadow: 4px 6px 60px rgba(0, 0, 0, 0.1); width: 130%; opacity: 0; transition: 0.3s; visibility: hidden; z-index: 3;} /* lnb는 무조건 absolute */ /* box-shadow 박스에 그림자주기 */ /* visibility: hidden; 숨기기 */
+header nav .gnb .lnb figure {padding-right: 38px; display: flex; align-items: center; border-right: 1px solid #e5e5e5;}
 header nav .gnb .lnb figure img {}
-header nav .gnb .lnb ul {display: flex; flex-wrap: wrap; gap: 17px 0; padding-left: 38px;} /* flex-wrap: wrap; <-- 100%넘어가면 줄바꿈 */
+
+header nav .gnb .lnb ul {display: flex; flex-wrap: wrap; gap: 17px 0; padding: 5px 0 5px 38px;} /* flex-wrap: wrap; <-- 100%넘어가면 줄바꿈 */
 header nav .gnb .lnb ul li {font-size: 18px; width: 50%; box-sizing: border-box; text-align: center; /* white-space: nowrap; */} /* 두개씩 정렬하기위해 width 50% 적용 */  
 /* white-space: nowrap 글자를 절대 줄 바꾸지 말고 한 줄로 쭉 써라 */
 header nav .gnb .lnb ul li a {padding: 5px 0; display: block;}
@@ -46,7 +47,22 @@ header nav .gnb li:last-child .lnb {right: 0; left: auto;}
 
 
 
-.hero {height: 650px; background: #eee;}
+.hero {height: 650px; background: #eee; position: relative;}
+.hero ul {width: 300%; height: 100%; display: flex; transition: .5s;}
+.hero ul li {width: 100%; height: 100%;}
+.hero ul li:nth-child(2) {background: green;}
+.hero ul li:nth-child(3) {background: blue;}
+.hero ul li img {width: 100%; height: 100%; object-fit: cover;}
+
+.hero .arrow_box {position: absolute; width: 100%; top: 50%; z-index: 2;}
+.hero .arrow_box div {position: absolute; width: 50px; height: 50px; transform: translate(0, -50%); cursor: pointer;}
+.hero .arrow_box div.btn_prev {left: 100px; background: red;}
+.hero .arrow_box div.btn_next {right: 100px; background: blue;}
+
+.hero .textbox {position: absolute; left: 50%; top: 50%; transform: translate(-130%, -50%); width: 600px;}
+.hero .textbox strong {font-size: 40px;color: #fff; font-weight: 700; line-height: 1.4;}
+.hero .textbox p {font-size: 18px; color: #fff; line-height: 1.6; margin-top: 30px;}
+.hero .textbox .btn {font-size: 20px; color: #fff; padding: 10px 26px; background: #f0620a; display: inline-block; margin-top: 40px;}
 
 .section_box {}
 
