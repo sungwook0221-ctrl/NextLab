@@ -25,11 +25,24 @@ header .baro {display: flex; gap: 25px; align-items: center; margin-right: 6.5vw
 header .baro a {padding: 10px 0; font-size: 14px; color: #808080;}
 
 header nav {}
-header nav .gnb {display: flex; justify-content: space-between;}
-header nav .gnb li {font-size: 20px;  flex-grow: 1; transition: .2s;}
-header nav .gnb li a {color: #05456e;  padding: 25px 40px; display: flex; justify-content: center;}
 
-header nav .gnb li:hover {font-size: 24px; font-weight: bold;}
+header nav .gnb {display: flex; justify-content: space-between;}
+header nav .gnb > li /* gnb의 자식 li만 적용되게 > 꺽쇠표시 */ {font-size: 20px;  flex-grow: 1; transition: .2s; position: relative; }
+header nav .gnb > li > a {color: #05456e;  padding: 25px 40px; display: flex; justify-content: center;}
+
+header nav .gnb > li:hover {font-size: 24px; font-weight: bold;}
+header nav .gnb > li:hover .lnb {opacity: 1; visibility: visible;} /* 숨겼던거 나타나라 */
+
+header nav .gnb .lnb {position: absolute; background: #fff; padding: 49px 36px; display: flex; left: 0; top: 90%; box-shadow: 4px 6px 60px rgba(0, 0, 0, 0.1); width: 130%; opacity: 0; transition: 0.3s; visibility: hidden;} /* lnb는 무조건 absolute */ /* box-shadow 박스에 그림자주기 */ /* visibility: hidden; 숨기기 */
+header nav .gnb .lnb figure {padding-right: 38px; display: flex; align-items: center;}
+header nav .gnb .lnb figure img {}
+header nav .gnb .lnb ul {display: flex; flex-wrap: wrap; gap: 17px 0; padding-left: 38px;} /* flex-wrap: wrap; <-- 100%넘어가면 줄바꿈 */
+header nav .gnb .lnb ul li {font-size: 18px; width: 50%; box-sizing: border-box; text-align: center; /* white-space: nowrap; */} /* 두개씩 정렬하기위해 width 50% 적용 */  
+/* white-space: nowrap 글자를 절대 줄 바꾸지 말고 한 줄로 쭉 써라 */
+header nav .gnb .lnb ul li a {padding: 5px 0; display: block;}
+
+header nav .gnb li:last-child .lnb {right: 0; left: auto;}
+
 
 
 
