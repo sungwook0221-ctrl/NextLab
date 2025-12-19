@@ -55,7 +55,9 @@ header nav .gnb .lnb li:hover a {color: #fff;}
 .hero ul li {width: 100%; height: 100%; overflow: hidden;}
 .hero ul li:nth-child(2) {background: green;}
 .hero ul li:nth-child(3) {background: blue;}
-.hero ul li img {width: 100%; height: 100%; object-fit: cover; animation: heroImg 10s forwards;} /* heroImg라는 애니메이션을 10초 동안 실행하고 끝나면 마지막 상태를 유지해라 = (아래 scale(1) 상태) */
+.hero ul li img {width: 100%; height: 100%; object-fit: cover; animation: heroImg 10s forwards;} 
+/* 이미지를 담고 있는 박스를 “가득 채우되” 비율은 유지하고, 넘치는 부분은 잘라낸다 */
+/* heroImg라는 애니메이션을 10초 동안 실행하고 끝나면 마지막 상태를 유지해라 = (아래 scale(1) 상태) */
 
 @keyframes heroImg {
     0% {transform: scale(1.1);}
@@ -94,14 +96,12 @@ header nav .gnb .lnb li:hover a {color: #fff;}
 
 .section1 .container .recent_board h2 {font-size: 32px; margin-bottom: 30px; display: flex; justify-content: space-between;}
 .section1 .container .recent_board h2 a {width: 36px; position: relative;}
-.section1 .container .recent_board h2 a::before,
 
+.section1 .container .recent_board h2 a::before,
 .section1 .container .recent_board h2 a::after {content: ""; position: absolute; width: 30px; height: 1px; background: #000; left: 50%; top: 50%; transform: translate(-50%,-50%); transition: 0.2s;}
 /* 내용이 없는 가상 요소를 생성하고, 부모 요소를 기준으로 절대 위치를 잡는다.
-
 왼쪽 50%, 위쪽 50% 위치에 배치한 뒤, 자기 자신의 크기 기준으로 
 가로·세로 각각 50%만큼 이동시켜 정확히 중앙에 정렬한다.
-
 이 요소의 속성 값이 변경될 경우, 0.2초 동안 부드럽게 전환되도록 설정한다. */
 
 .section1 .container .recent_board h2 a::after {transform:translate(-50%,-50%) rotate(90deg);}
@@ -115,7 +115,7 @@ header nav .gnb .lnb li:hover a {color: #fff;}
 .section1 .container .recent_board ul {}
 .section1 .container .recent_board ul li {font-size: 20px; line-height: 40px; border-bottom: 1px solid #eee; margin-bottom: 15px;}
 .section1 .container .recent_board ul li a {display: flex; justify-content: space-between; gap: 30px;}
-.section1 .container .recent_board ul li a .title {flex-grow: 1; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.section1 .container .recent_board ul li a .title {flex-grow: 1; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;} /* title 부분이 남는 공간을 최대한 사용해라, 넘치는 내용은 ... 으로 표시해라 줄바꿈 하지마라 */
 .section1 .container .recent_board ul li a .date {}
 
 .section2 {}
@@ -131,8 +131,7 @@ header nav .gnb .lnb li:hover a {color: #fff;}
                                         /* 호버시 이미지 1.1배로 커져라 */
 
 .section2 .container .content li a .textbox { position: absolute; width: 100%; height: 100%; left: 0; top: 0; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;}
-/* 부모 요소를 기준으로 절대 위치를 잡고, 부모의 전체 영역(가로 100%, 세로 100%)을 덮는다. 왼쪽 0, 위쪽 0 위치에 배치한다. flex를 사용하여 자식 요소들을
-가로 방향 기준으로 세로(column)로 배치하고, 가로·세로 모두 중앙에 정렬한다.
+/* 부모 요소를 기준으로 절대 위치를 잡고, 부모의 전체 영역(가로 100%, 세로 100%)을 덮는다. 왼쪽 0, 위쪽 0 위치에 배치한다. flex를 사용하여 자식 요소들을 가로 방향 기준으로 세로(column)로 배치하고, 가로·세로 모두 중앙에 정렬한다.
 텍스트는 가운데 정렬한다. */
 .section2 .container .content li a .textbox strong {font-size: 24px; color: #fff; opacity: 0; margin-top: 50px; transition: .3s; margin-bottom: 20px;}
 .section2 .container .content li a .textbox p {font-size: 18px; color: #fff; opacity: 0; transition: .3s;}
@@ -148,30 +147,34 @@ header nav .gnb .lnb li:hover a {color: #fff;}
 .section3 .container .content li img {width: 100%; height: 100%; object-fit: cover; transition: 1s;}
 .section3 .container .content li:hover img {transform: scale(1.1);}
 
-.section3 .container .content li a .textbox {position: absolute; width: 100%; height: 100%; color: #fff; font-size: 24px; display: flex; justify-content: center; align-items: center; left: 0; top: 0; background: rgba(0, 0, 0, 0.2);}
+.section3 .container .content li a .textbox {position: absolute; width: 100%; height: 100%; color: #fff; font-size: 24px; display: flex; justify-content: center; align-items: center; left: 0; top: 0; background: rgba(0, 0, 0, 0.1);}
 
-.section3 .container .content li iframe {width: 100%; height: 100%; object-fit: cover;} /* 이미지를 담고 있는 박스를 “가득 채우되” 비율은 유지하고,
-넘치는 부분은 잘라낸다 */
+.section3 .container .content li iframe {width: 100%; height: 100%; object-fit: cover;} 
+/* 이미지를 담고 있는 박스를 “가득 채우되” 비율은 유지하고, 넘치는 부분은 잘라낸다 */
 
 
 .section4 {background: #064570;}
 .section4 .container {margin-top: 150px; padding: 150px 0;}
 .section4 .container h2 {font-size: 32px; margin-bottom: 60px; text-align: center; color: #fff;}
 
-.section4 .container .content {display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 270px); gap: 50px;}
+.section4 .container .content {display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 270px); gap: 50px;} /* 4칸(columns) × 3줄(rows)의 카드 그리드를 만들고, 각 카드는 같은 너비, 높이는 270px,
+카드 사이 간격은 50px로 배치 */
 .section4 .container .content li {background: #fff;}
-.section4 .container .content li a {height: 100%; border: 1px solid red; padding: 30px 20px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; gap: 50px;}
+.section4 .container .content li a {height: 100%; border: 1px solid red; padding: 30px 20px; box-sizing: border-box; display: flex; flex-direction: column;/* flex 안에 있는 요소들을 “위에서 아래로(세로로)” 쌓아라 */ justify-content: space-between; align-items: center; text-align: center; gap: 50px;}
 
 .section4 .container .content li a h3 {font-size: 20px; margin-bottom: 20px;}
 .section4 .container .content li a p {font-size: 18px;}
 
-.section4 .content li:nth-child(1) {grid-row: span 2;}
-.section4 .content li:nth-child(5) {grid-column: span 2; }
-.section4 .content li:nth-child(9) {grid-column: span 2; }
-
+.section4 .content li:nth-child(1) {grid-row: span 2;} 
+/* 해당 요소가 세로 방향으로 2개의 Grid 행을 차지하도록 설정한다. */
+.section4 .content li:nth-child(5) {grid-column: span 2;}
+/* 해당 요소가 가로 방향으로 2개의 Grid 열을 차지하도록 설정한다. */
+.section4 .content li:nth-child(9) {grid-column: span 2;}
+/* 해당 요소가 가로 방향으로 2개의 Grid 열을 차지하도록 설정한다. */
 
 .section4 .content li:nth-child(1) a {padding: 100px 20px;}
 .section4 .content li:nth-child(5) a {flex-direction: row;}
+/* 5번 카드 안 내용은 세로 말고 가로로 줄 세워! */
 .section4 .content li:nth-child(9) a {flex-direction: row;}
-
+/* 9번 카드 안 내용은 세로 말고 가로로 줄 세워! */
 footer {height: 225px; background: #d9d9d9;}
